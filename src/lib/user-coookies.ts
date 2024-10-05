@@ -1,9 +1,5 @@
 import { cookies } from 'next/headers'
-
-type User = {
-  username: string
-  jobTitle: string
-}
+import type { User } from '@/types'
 
 export const getUser = (): User | null => {
   try {
