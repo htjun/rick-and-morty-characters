@@ -22,7 +22,7 @@ const UserInfo = ({ user }: UserInfoProps) => {
         {`${username} (${jobTitle})`}
       </Text>
       <Link href="/register">
-        <Button as="div" size="sm" variant="outline">
+        <Button as="span" size="sm" variant="outline">
           Edit
         </Button>
       </Link>
