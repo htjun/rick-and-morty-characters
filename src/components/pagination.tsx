@@ -45,7 +45,12 @@ const Pagination = ({ total, current }: PaginationProps) => {
         // Hide on small screens to avoid breaking the layout
         <Box display={{ base: 'none', md: 'block' }}>
           <Link href={getPageUrl(prev)}>
-            <Button as="span" leftIcon={<ArrowBackIcon />} fontSize="sm">
+            <Button
+              as="span"
+              leftIcon={<ArrowBackIcon />}
+              fontSize="sm"
+              data-testid="pagination-button-prev"
+            >
               Prev
             </Button>
           </Link>
@@ -57,6 +62,7 @@ const Pagination = ({ total, current }: PaginationProps) => {
             as="span"
             color={page === current ? 'key' : 'gray.600'}
             fontSize="sm"
+            data-testid={`pagination-button-${page}`}
           >
             {page}
           </Button>
@@ -65,7 +71,12 @@ const Pagination = ({ total, current }: PaginationProps) => {
       {next && (
         <Box display={{ base: 'none', md: 'block' }}>
           <Link href={getPageUrl(next)}>
-            <Button as="span" rightIcon={<ArrowForwardIcon />} fontSize="sm">
+            <Button
+              as="span"
+              rightIcon={<ArrowForwardIcon />}
+              fontSize="sm"
+              data-testid="pagination-button-next"
+            >
               Next
             </Button>
           </Link>
