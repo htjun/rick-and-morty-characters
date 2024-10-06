@@ -1,6 +1,6 @@
 'use server'
 
-import { setUser } from '@/lib/user-coookies'
+import { setUser } from '@/lib/user-cookies'
 import { redirect } from 'next/navigation'
 import { User } from '@/types'
 

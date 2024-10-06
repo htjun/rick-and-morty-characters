@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { getUser } from '@/lib/user-coookies'
+import { getUser } from '@/lib/user-cookies'
 
 const REGISTER_PATH = '/register'
 
