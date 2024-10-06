@@ -48,7 +48,15 @@ npm run dev
 npm run build
 
 # Start the production server after building the application
-npm start
+npm run start
+```
+
+## Testing
+
+This project uses Jest and React Testing Library. To run the tests for this project, use the following command:
+
+```bash
+npm run test
 ```
 
 ## Considerations
