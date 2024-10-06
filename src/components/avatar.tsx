@@ -11,13 +11,7 @@ const Avatar = ({ image, name }: { image: string; name: string }) => {
       rounded="full"
       bg="gray.100"
     >
-      <Image
-        src={image}
-        alt={name}
-        width={60}
-        height={60}
-        style={{ borderRadius: '60px' }}
-      />
+      <Image src={image} alt={name} width={60} height={60} />
     </Box>
   )
 }

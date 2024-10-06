@@ -1,6 +1,7 @@
 import { Card, Text, VStack } from '@chakra-ui/react'
 import { RegisterForm } from '@/components'
 import { getUser } from '@/lib/user-cookies'
+
 const RegisterPage = () => {
   const user = getUser()
 

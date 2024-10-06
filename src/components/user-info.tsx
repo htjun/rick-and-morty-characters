@@ -3,7 +3,7 @@ import { Button, HStack, Text } from '@chakra-ui/react'
 import type { User } from '@/types'
 
 type UserInfoProps = {
-  user: User | null
+  user?: User
 }
 
 const UserInfo = ({ user }: UserInfoProps) => {
@@ -19,7 +19,7 @@ const UserInfo = ({ user }: UserInfoProps) => {
         Registered as
       </Text>
       <Text fontSize="sm" fontWeight="medium" color="gray.700">
-        {username} ({jobTitle})
+        {`${username} (${jobTitle})`}
       </Text>
       <Link href="/register">
         <Button as="div" size="sm" variant="outline">

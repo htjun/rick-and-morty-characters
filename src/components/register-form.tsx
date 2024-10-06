@@ -12,8 +12,8 @@ import {
 import { register } from '@/actions/register'
 import { User } from '@/types'
 
-const RegisterForm = ({ user }: { user: User | null }) => {
-  const handleSubmit = async (formData: FormData) => {
+const RegisterForm = ({ user }: { user?: User }) => {
+  const handleSubmit = async (formData: FormData): Promise<void> => {
     const username = formData.get('username') as string
     const jobTitle = formData.get('jobTitle') as string
 
@@ -50,9 +50,10 @@ const RegisterForm = ({ user }: { user: User | null }) => {
         </FormControl>
         <HStack>
           <Button type="submit">{user ? 'Update' : 'Register'}</Button>
+          {/* Only show cancel button if user data exists */}
           {user && (
             <Link href="/">
-              <Button as="div" variant="outline">
+              <Button as="span" variant="outline">
                 Cancel
               </Button>
             </Link>

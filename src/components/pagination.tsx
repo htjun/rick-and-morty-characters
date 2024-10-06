@@ -45,7 +45,7 @@ const Pagination = ({ total, current }: PaginationProps) => {
         // Hide on small screens to avoid breaking the layout
         <Box display={{ base: 'none', md: 'block' }}>
           <Link href={getPageUrl(prev)}>
-            <Button as="div" leftIcon={<ArrowBackIcon />} fontSize="sm">
+            <Button as="span" leftIcon={<ArrowBackIcon />} fontSize="sm">
               Prev
             </Button>
           </Link>
@@ -54,7 +54,7 @@ const Pagination = ({ total, current }: PaginationProps) => {
       {pageNumbers.map(page => (
         <Link key={page} href={getPageUrl(page)}>
           <Button
-            as="div"
+            as="span"
             color={page === current ? 'key' : 'gray.600'}
             fontSize="sm"
           >
@@ -65,7 +65,7 @@ const Pagination = ({ total, current }: PaginationProps) => {
       {next && (
         <Box display={{ base: 'none', md: 'block' }}>
           <Link href={getPageUrl(next)}>
-            <Button as="div" rightIcon={<ArrowForwardIcon />} fontSize="sm">
+            <Button as="span" rightIcon={<ArrowForwardIcon />} fontSize="sm">
               Next
             </Button>
           </Link>

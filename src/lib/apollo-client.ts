@@ -9,7 +9,7 @@ export const { getClient } = registerApolloClient(() => {
   return new ApolloClient({
     cache: new InMemoryCache(),
     link: new HttpLink({
-      uri: 'https://rickandmortyapi.com/graphql', // Ideally, this should be an environment variable
+      uri: process.env.RICK_AND_MORTY_GRAPHQL_API_URL as string,
       fetchOptions: { cache: 'no-store' },
     }),
   })

@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react'
 import { Box, SimpleGrid, useDisclosure } from '@chakra-ui/react'
-import { CharacterCard, CharacterModal } from '@/components'
 import { Character } from '@/types'
+import { CharacterCard, CharacterModal } from '.'
 
 type CharacterListProps = {
   characters: Character[]
@@ -15,7 +15,7 @@ const CharacterList = ({ characters }: CharacterListProps) => {
     null
   )
 
-  const handleOpen = (character: Character) => {
+  const handleOpen = (character: Character): void => {
     setSelectedCharacterId(character.id)
     onOpen()
   }
@@ -26,11 +26,13 @@ const CharacterList = ({ characters }: CharacterListProps) => {
 
   return (
     <>
-      <CharacterModal
-        isOpen={isOpen}
-        onClose={onClose}
-        character={selectedCharacter as Character}
-      />
+      {selectedCharacter && (
+        <CharacterModal
+          isOpen={isOpen}
+          onClose={onClose}
+          character={selectedCharacter}
+        />
+      )}
       <SimpleGrid
         columns={3}
         spacing={{
@@ -50,6 +52,7 @@ const CharacterList = ({ characters }: CharacterListProps) => {
             _focusVisible={{
               outline: '2px solid #319795',
             }}
+            aria-label="Character Card"
           >
             <CharacterCard character={character} />
           </Box>
