@@ -1,28 +1,61 @@
 'use client'
-import { SimpleGrid } from '@chakra-ui/react'
+
+import React, { useState } from 'react'
+import { Box, SimpleGrid, useDisclosure } from '@chakra-ui/react'
+import { CharacterCard, CharacterModal } from '@/components'
 import { Character } from '@/types'
-import CharacterCard from './character-card'
 
 type CharacterListProps = {
   characters: Character[]
 }
 
 const CharacterList = ({ characters }: CharacterListProps) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [selectedCharacterId, setSelectedCharacterId] = useState<string | null>(
+    null
+  )
+
+  const handleOpen = (character: Character) => {
+    setSelectedCharacterId(character.id)
+    onOpen()
+  }
+
+  const selectedCharacter = characters.find(
+    character => character.id === selectedCharacterId
+  )
+
   return (
-    <SimpleGrid
-      columns={3}
-      spacing={{
-        base: 4,
-        sm: 6,
-      }}
-      w="full"
-      maxW="container.xl"
-      minChildWidth="container.xs"
-    >
-      {characters.map((character: Character) => (
-        <CharacterCard key={character.id} character={character} />
-      ))}
-    </SimpleGrid>
+    <>
+      <CharacterModal
+        isOpen={isOpen}
+        onClose={onClose}
+        character={selectedCharacter as Character}
+      />
+      <SimpleGrid
+        columns={3}
+        spacing={{
+          base: 4,
+          sm: 6,
+        }}
+        w="full"
+        maxW="container.xl"
+        minChildWidth="container.xs"
+      >
+        {characters.map((character: Character) => (
+          <Box
+            key={character.id}
+            as="button"
+            onClick={() => handleOpen(character)}
+            rounded="2xl"
+            _focusVisible={{
+              outline: '2px solid #319795',
+            }}
+          >
+            <CharacterCard character={character} />
+          </Box>
+        ))}
+      </SimpleGrid>
+    </>
   )
 }
 
