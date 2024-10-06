@@ -1,5 +1,7 @@
+import { VStack } from '@chakra-ui/react'
 import { getClient } from '@/lib/apollo-client'
 import { GET_ALL_CHARACTERS } from '@/queries/characters'
+import { CharacterList } from '@/components'
 
 export default async function Home() {
   const { data: allCharacters } = await getClient().query({
@@ -11,8 +13,8 @@ export default async function Home() {
   } = allCharacters
 
   return (
-    <div>
-      <pre>{JSON.stringify(characters, null, 2)}</pre>
-    </div>
+    <VStack>
+      <CharacterList characters={characters} />
+    </VStack>
   )
 }

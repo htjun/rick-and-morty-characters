@@ -6,6 +6,15 @@ const theme = extendTheme({
     body: inter.style.fontFamily,
     heading: manrope.style.fontFamily,
   },
+  sizes: {
+    container: {
+      xs: '300px',
+      sm: '540px',
+      md: '720px',
+      lg: '960px',
+      xl: '1200px',
+    },
+  },
   colors: {
     key: '#319795',
   },
