@@ -1,0 +1,15 @@
+import { Spinner } from '@chakra-ui/react'
+
+export const LoadingSpinner = () => {
+  return (
+    <Spinner
+      thickness="4px"
+      speed="0.65s"
+      emptyColor="gray.200"
+      color="key"
+      size="xl"
+    />
+  )
+}
+
+export default LoadingSpinner
